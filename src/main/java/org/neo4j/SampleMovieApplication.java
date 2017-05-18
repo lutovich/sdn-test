@@ -9,6 +9,8 @@ import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 import org.springframework.data.neo4j.transaction.Neo4jTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.util.List;
+
 import org.neo4j.domain.Movie;
 import org.neo4j.ogm.authentication.UsernamePasswordCredentials;
 import org.neo4j.ogm.session.SessionFactory;
@@ -27,8 +29,8 @@ public class SampleMovieApplication
 
         movieService.save( new Movie( "Logan", 2017 ) );
 
-        Movie movie = movieService.findByTitle( "Logan" );
-        System.out.println( movie );
+        List<Movie> movies = movieService.findByTitle( "Logan" );
+        System.out.println( movies );
     }
 
     @Bean

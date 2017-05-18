@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import org.neo4j.domain.Movie;
 import org.neo4j.repositories.MovieRepository;
 
@@ -20,7 +22,7 @@ public class MovieService
     }
 
     @Transactional
-    public Movie findByTitle( String title )
+    public List<Movie> findByTitle( String title )
     {
         return movieRepository.findByTitle( title );
     }
